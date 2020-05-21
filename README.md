@@ -15,16 +15,16 @@ A dice rolling app to kick around some Flutter code. I've been meaning to dive d
 I need to write tests!
 
 ## Built With
-- [Flutter](https://flutter.dev/)
+* [Flutter](https://flutter.dev/)
 
 ## Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Author
-- **David Pellegrini**
+* **David Pellegrini**
 
 ## License
 This project is licensed under the GNU General Public License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-- Billie Thompson ([PurpleBooth](https://github.com/PurpleBooth)) for the README template
+* Billie Thompson ([PurpleBooth](https://github.com/PurpleBooth)) for the README template
