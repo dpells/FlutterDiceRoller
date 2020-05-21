@@ -10,15 +10,21 @@ A dice rolling app to kick around some Flutter code. I've been meaning to dive d
   2. Select the Flutter plugin and click **Install**
   2. Click **Yes** when prompted to install the Dart plugin
   2. Click **Restart** when prompted
-  
-  ## Tests
-  I need to write tests!
-  
-  ## Built With
-  - [Flutter](https://flutter.dev/)
-  
-  ## Contributing
-  Currently closed for contributions
-  
-  ## Author
-  - **David Pellegrini**
+
+## Tests
+I need to write tests!
+
+## Built With
+- [Flutter](https://flutter.dev/)
+
+## Contributing
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Author
+- **David Pellegrini**
+
+## License
+This project is licensed under the GNU General Public License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+- Billie Thompson ([PurpleBooth](https://github.com/PurpleBooth)) for the README template
