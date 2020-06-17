@@ -73,7 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
       text: 'd8',
       icon: AssetImage('diceIcons/d8.png'),
       onPressed: (){
-        op8enDialog();
+        print(Text(Random.secure().nextInt(8).toString()));
+        //op8enDialog();
       },
     ),
     DiceButton(
@@ -165,7 +166,8 @@ class _MyHomePageState extends State<MyHomePage> {
               text: 'd8',
               icon: AssetImage('diceIcons/d8.png'),
               onPressed: (){
-                openDialog(context, 8);
+                print(Random.secure().nextInt(8).toString());
+                //openDialog(context, 8);
               },
             ),
             DiceButton(
@@ -203,12 +205,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  static Widget openDialog(BuildContext context, int max){
-    print("Rolling d" + max.toString());
-    return Overlay(
-      initialEntries: <OverlayEntry>[
-        WidgetBuilder(BuildContext context)
-      ],
-    );
-  }
+//  static Widget openDialog(BuildContext context, int max){
+//    print("Rolling d" + max.toString());
+//    return Overlay(
+//      initialEntries: <OverlayEntry>[
+//        WidgetBuilder(BuildContext context)
+//      ],
+//    );
+//  }
 }
