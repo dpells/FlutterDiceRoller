@@ -12,15 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dice Roller',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.green,
         primaryColorDark: Colors.teal[900],
         primaryColorLight: Colors.lightGreen[400],
@@ -62,44 +53,39 @@ class _MyHomePageState extends State<MyHomePage> {
     DiceButton(
       text: 'd4',
       icon: AssetImage('diceIcons/d4.png'),
-      onPressed: (){print("pressed");},
+      max: 4,
     ),
     DiceButton(
       text: 'd6',
       icon: AssetImage('diceIcons/d6.png'),
-      onPressed: (){print("pressed");},
+      max: 6,
     ),
     DiceButton(
       text: 'd8',
       icon: AssetImage('diceIcons/d8.png'),
-      onPressed: (){
-        print(Text(Random.secure().nextInt(8).toString()));
-        //op8enDialog();
-      },
+      max: 8,
     ),
-    DiceButton(
+    DiceButton.withZero(
       text: 'd10',
       icon: AssetImage('diceIcons/d10.png'),
-      onPressed: (){print("pressed");},
+      max: 10,
+      showZero: true,
     ),
-    DiceButton(
+    DiceButton.withZero(
       text: 'd00',
       icon: AssetImage('diceIcons/d10.png'),
-      onPressed: (){
-        Dialog(
-          child: Text(Random.secure().nextInt(10).toString())
-        );
-      },
+      max: 10,
+      showZero: true,
     ),
     DiceButton(
       text: 'd12',
       icon: AssetImage('diceIcons/d12.png'),
-      onPressed: (){print(Random.secure().nextInt(12)+1);},
+      max: 12,
     ),
     DiceButton(
       text: 'd20',
       icon: AssetImage('diceIcons/d20.png'),
-      onPressed: (){print(Random.secure().nextInt(20)+1);},
+      max: 20,
     ),
   ];
 
@@ -134,67 +120,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Wrap(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //mainAxisAlignment: MainAxisAlignment.center,
           runSpacing: 40,
           spacing: 40,
-          children: [
-            DiceButton(
-              text: 'd4',
-              icon: AssetImage('diceIcons/d4.png'),
-              onPressed: (){print("pressed");},
-            ),
-            DiceButton(
-              text: 'd6',
-              icon: AssetImage('diceIcons/d6.png'),
-              onPressed: (){print("pressed");},
-            ),
-            DiceButton(
-              text: 'd8',
-              icon: AssetImage('diceIcons/d8.png'),
-              onPressed: (){
-                print(Random.secure().nextInt(8).toString());
-                //openDialog(context, 8);
-              },
-            ),
-            DiceButton(
-              text: 'd10',
-              icon: AssetImage('diceIcons/d10.png'),
-              onPressed: (){print("pressed");},
-            ),
-            DiceButton(
-              text: 'd00',
-              icon: AssetImage('diceIcons/d10.png'),
-              onPressed: (){
-                Dialog(
-                    child: Text(Random.secure().nextInt(10).toString())
-                );
-              },
-            ),
-            DiceButton(
-              text: 'd12',
-              icon: AssetImage('diceIcons/d12.png'),
-              onPressed: (){print(Random.secure().nextInt(12)+1);},
-            ),
-            DiceButton(
-              text: 'd20',
-              icon: AssetImage('diceIcons/d20.png'),
-              onPressed: (){print(Random.secure().nextInt(20)+1);},
-            ),
-          ],
+          children: initDice,
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -204,13 +132,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-
-//  static Widget openDialog(BuildContext context, int max){
-//    print("Rolling d" + max.toString());
-//    return Overlay(
-//      initialEntries: <OverlayEntry>[
-//        WidgetBuilder(BuildContext context)
-//      ],
-//    );
-//  }
 }
