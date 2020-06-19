@@ -41,4 +41,19 @@ void main() {
         endsWith('0')
     );
   });
+
+//  testWidgets('DiceButton has text and icon', (WidgetTester tester) async{
+//    await tester.pumpWidget(
+//        DiceButton(
+//            text: 'd4',
+//            icon: AssetImage('diceIcons/d4.png')
+//        )
+//    );
+//
+//    final textFinder = find.text('d4');
+//    final imageFinder = find.byType(AssetImage);
+//
+//    expect(textFinder, findsOneWidget);
+//    expect(imageFinder, findsWidgets);
+//  });
 }

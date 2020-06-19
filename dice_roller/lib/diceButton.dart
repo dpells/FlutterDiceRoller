@@ -3,22 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
 
-void main(){
-  testWidgets('DiceButton has text and icon', (WidgetTester tester) async{
-    await tester.pumpWidget(
-        DiceButton(
-            text: 'd4',
-            icon: AssetImage('diceIcons/d4.png')
-        )
-    );
 
-    final textFinder = find.text('d4');
-    final imageFinder = find.byType(AssetImage);
-
-    expect(textFinder, findsOneWidget);
-    expect(imageFinder, findsWidgets);
-  });
-}
 
 class DiceButton extends StatelessWidget{
   final int max;

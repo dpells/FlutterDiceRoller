@@ -1,11 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'diceButton.dart';
+import 'package:diceroller/quickDice.dart';
+import 'package:diceroller/AdvancedDice.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Home());
 
-class MyApp extends StatelessWidget {
+class Home extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,13 +23,13 @@ class MyApp extends StatelessWidget {
           display1: TextStyle(color: Colors.black),
         ),
       ),
-      home: MyHomePage(title: 'Dice Roller'),
+      home: Main(title: 'Dice Roller'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class Main extends StatefulWidget {
+  Main({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -44,63 +43,29 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainState createState() => _MainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  List<Widget> initDice = [
-    DiceButton(
-      text: 'd4',
-      icon: AssetImage('diceIcons/d4.png'),
-      max: 4,
-    ),
-    DiceButton(
-      text: 'd6',
-      icon: AssetImage('diceIcons/d6.png'),
-      max: 6,
-    ),
-    DiceButton(
-      text: 'd8',
-      icon: AssetImage('diceIcons/d8.png'),
-      max: 8,
-    ),
-    DiceButton.withZero(
-      text: 'd10',
-      icon: AssetImage('diceIcons/d10.png'),
-      max: 10,
-      showZero: true,
-    ),
-    DiceButton.withZero(
-      text: 'd00',
-      icon: AssetImage('diceIcons/d10.png'),
-      max: 10,
-      showZero: true,
-    ),
-    DiceButton(
-      text: 'd12',
-      icon: AssetImage('diceIcons/d12.png'),
-      max: 12,
-    ),
-    DiceButton(
-      text: 'd20',
-      icon: AssetImage('diceIcons/d20.png'),
-      max: 20,
-    ),
+class _MainState extends State<Main>
+    with SingleTickerProviderStateMixin{
+  final List<Tab> tabs = <Tab>[
+    Tab(text: 'Quick Roll'),
+    Tab(text: 'Advanced Roll'),
   ];
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: tabs.length);
   }
 
-
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,21 +80,24 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Wrap(
-          runSpacing: 40,
-          spacing: 40,
-          children: initDice,
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: tabs,
         ),
       ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget> [
+          QuickDiceTab(),
+          AdvancedDice(),
+        ]
+      ),
+      /* We'll eventually need a FAB to create new dice
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),*/ // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
