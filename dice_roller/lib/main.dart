@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diceroller/quickDice.dart';
 import 'package:diceroller/AdvancedDice.dart';
+import 'diceButton.dart';
 
 void main() => runApp(Home());
 
@@ -53,12 +54,54 @@ class _MainState extends State<Main>
     Tab(text: 'Advanced Roll'),
   ];
 
+  List<Widget> initDice = [
+    DiceButton(
+      text: 'd4',
+      icon: AssetImage('diceIcons/d4.png'),
+      max: 4,
+    ),
+    DiceButton(
+      text: 'd6',
+      icon: AssetImage('diceIcons/d6.png'),
+      max: 6,
+    ),
+    DiceButton(
+      text: 'd8',
+      icon: AssetImage('diceIcons/d8.png'),
+      max: 8,
+    ),
+    DiceButton.withZero(
+      text: 'd10',
+      icon: AssetImage('diceIcons/d10.png'),
+      max: 10,
+      showZero: true,
+    ),
+    DiceButton.withZero(
+      text: 'd00',
+      icon: AssetImage('diceIcons/d10.png'),
+      max: 10,
+      showZero: true,
+    ),
+    DiceButton(
+      text: 'd12',
+      icon: AssetImage('diceIcons/d12.png'),
+      max: 12,
+    ),
+    DiceButton(
+      text: 'd20',
+      icon: AssetImage('diceIcons/d20.png'),
+      max: 20,
+    ),
+  ];
+
   TabController _tabController;
+  int mod;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: tabs.length);
+    mod = 0;
   }
 
   @override
@@ -88,16 +131,20 @@ class _MainState extends State<Main>
       body: TabBarView(
         controller: _tabController,
         children: <Widget> [
-          QuickDiceTab(),
-          AdvancedDice(),
+          QuickDiceTab(
+            initDice: initDice
+          ),
+          AdvancedDice(
+            initDice: initDice,
+          ),
         ]
       ),
-      /* We'll eventually need a FAB to create new dice
-      floatingActionButton: FloatingActionButton(
-
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),*/ // This trailing comma makes auto-formatting nicer for build methods.
+      /* We'll eventually need a FAB to create new dice */
+//      floatingActionButton: FloatingActionButton(
+//
+//        tooltip: 'Increment',
+//        child: Icon(Icons.add),
+//      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
