@@ -12,8 +12,7 @@ A dice rolling app to kick around some Flutter code. I've been meaning to dive d
   2. Click **Restart** when prompted
 
 ## Tests
-I need to write tests!
-
+Tests are a bit rudimentary right now and they're being written as the project grows. A near-future goal will be to run them in Firebase
 ## Built With
 * [Flutter](https://flutter.dev/)
 
