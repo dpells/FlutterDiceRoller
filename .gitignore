@@ -146,6 +146,7 @@ captures/
 
 # Google Services
 google-services.json
+GoogleService-Info.plist
 
 # Freeline
 freeline.py
