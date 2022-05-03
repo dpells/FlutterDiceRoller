@@ -17,10 +17,10 @@ class QuickDiceTab extends StatelessWidget {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Wrap(
-          runSpacing: 40,
           spacing: 40,
+          runSpacing: 40,
           children: initDice,
-        ),
+        )
       ),
       /* We'll eventually need a FAB to create new dice
       floatingActionButton: FloatingActionButton(

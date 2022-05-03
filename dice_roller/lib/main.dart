@@ -51,7 +51,8 @@ class _MainState extends State<Main>
     with SingleTickerProviderStateMixin{
   final List<Tab> tabs = <Tab>[
     Tab(text: 'Quick Roll'),
-    Tab(text: 'Advanced Roll'),
+    Tab(text: 'Custom Roll'),
+    Tab(text: 'New tab'),
   ];
 
   List<Widget> initDice = [
@@ -137,6 +138,9 @@ class _MainState extends State<Main>
           AdvancedDice(
             initDice: initDice,
           ),
+          AdvancedDice(
+            initDice: initDice,
+          )
         ]
       ),
       /* We'll eventually need a FAB to create new dice */
