@@ -19,10 +19,10 @@ class MyApp extends StatelessWidget {
 
         canvasColor: Colors.lime[50],
         backgroundColor: Colors.white70,
-        textTheme: TextTheme(
-          body1: TextStyle(color: Colors.black),
-          display1: TextStyle(color: Colors.black),
-        ),
+        // textTheme: TextTheme(
+        //   body: TextStyle(color: Colors.black),
+        //   display1: TextStyle(color: Colors.black),
+        // ),
       ),
       home: MyHomePage(title: 'Dice Roller'),
     );
